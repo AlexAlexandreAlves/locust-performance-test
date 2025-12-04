@@ -1,0 +1,23 @@
+{
+  "python.defaultInterpreterPath": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env/bin/python",
+  "github.copilot.chat.mcpServers": {
+    "mcp-locust": {
+      "command": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env/bin/python",
+      "args": [
+        "-u",
+        "/Users/aalexandre/.vscode/extensions/locust.locust-vscode-extension-0.1.68/mcp/server.py"
+      ],
+      "cwd": "${workspaceFolder}"
+    }
+  },
+  "github.copilot.experimental.mcpServers": {
+    "mcp-locust": {
+      "command": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env/bin/python",
+      "args": [
+        "-u",
+        "/Users/aalexandre/.vscode/extensions/locust.locust-vscode-extension-0.1.68/mcp/server.py"
+      ],
+      "cwd": "${workspaceFolder}"
+    }
+  }
+}
