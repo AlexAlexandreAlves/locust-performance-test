@@ -7,9 +7,11 @@
             "request": "launch",
             "program": "${workspaceFolder}/locust-venv/tests/activities_post_test.py", // Altere para o caminho do seu script
             "args": [
-                "-f", "${workspaceFolder}/locust-venv/tests/activities_post_test.py", // O arquivo Locust que você deseja executar
+                "-f",
+                "${workspaceFolder}/locust-venv/tests/activities_post_test.py", // O arquivo Locust que você deseja executar
                 "--headless", // Se você deseja executar em modo headless
-                "--logfile", "locust.log" // Para registrar logs
+                "--logfile",
+                "locust.log" // Para registrar logs
             ],
             "console": "integratedTerminal",
             "env": {
