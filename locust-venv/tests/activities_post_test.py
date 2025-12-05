@@ -1,14 +1,25 @@
 import csv
 import json
+import os
 import logging
-from locust import FastHttpUser, TaskSet, task, between
+from locust import FastHttpUser, TaskSet, task, between, run_single_user
 import random
 
 # Configuração do logging
 logging.basicConfig(level=logging.INFO)
 
+# Define o caminho absoluto para o arquivo de configuração
+config_path = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), '../config.json')
+# Define o caminho absoluto para o arquivo csv de dados
+config_data_path = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), '../src/data/csv/data.csv')
+# Define o caminho absoluto para o arquivo json de atividades
+config_data_json = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), '../src/data/json/activities.json')
+
 # Lê a configuração do arquivo JSON
-with open('../config.json', mode='r') as config_file:
+with open(config_path, mode='r') as config_file:
     config = json.load(config_file)
 
 
@@ -16,13 +27,13 @@ class ActivitiesBehavior(TaskSet):
     def on_start(self):
         # Lê o arquivo CSV e armazena os dados em uma lista
         self.activities = []
-        with open('../src/data/csv/data.csv', mode='r') as file:
+        with open(config_data_path, mode='r') as file:
             reader = csv.DictReader(file)
             for row in reader:
                 self.activities.append(row)
 
         # Lê o payload base do arquivo JSON
-        with open('../src/data/json/activities.json', mode='r') as file:
+        with open(config_data_json, mode='r') as file:
             self.base_payload = json.load(file)
 
     @task
@@ -52,3 +63,7 @@ class WebsiteUser(FastHttpUser):
     host = config['base_url']
     tasks = [ActivitiesBehavior]
     wait_time = between(1, 5)
+
+
+if __name__ == "__main__":
+    run_single_user(ActivitiesBehavior)

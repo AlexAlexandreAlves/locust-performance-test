@@ -1,58 +1,21 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Locust: run_single_user (active file)",
-      "type": "python",
-      "request": "launch",
-      "python": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env/bin/python",
-      "program": "${file}",
-      "cwd": "${fileDirname}",
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "args": [],
-      "env": {
-        "VIRTUAL_ENV": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env",
-        "PATH": "${workspaceFolder}/.locust_env/bin:${env:PATH}",
-        "GEVENT_SUPPORT": "True"
-      }
-    },
-    {
-      "name": "Pytest: all tests",
-      "type": "python",
-      "request": "launch",
-      "python": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env/bin/python",
-      "module": "pytest",
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "args": [
-        "-q"
-      ],
-      "env": {
-        "VIRTUAL_ENV": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env",
-        "PATH": "${workspaceFolder}/.locust_env/bin:${env:PATH}",
-        "GEVENT_SUPPORT": "True"
-      }
-    },
-    {
-      "name": "Pytest: current file",
-      "type": "python",
-      "request": "launch",
-      "python": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env/bin/python",
-      "module": "pytest",
-      "cwd": "${fileDirname}",
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "args": [
-        "-q",
-        "${file}"
-      ],
-      "env": {
-        "VIRTUAL_ENV": "/Users/aalexandre/Documents/Projects/locust-performance-test/.locust_env",
-        "PATH": "${workspaceFolder}/.locust_env/bin:${env:PATH}",
-        "GEVENT_SUPPORT": "True"
-      }
-    }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Locust",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/locust-venv/tests/activities_post_test.py", // Altere para o caminho do seu script
+            "args": [
+                "-f", "${workspaceFolder}/locust-venv/tests/activities_post_test.py", // O arquivo Locust que você deseja executar
+                "--headless", // Se você deseja executar em modo headless
+                "--logfile", "locust.log" // Para registrar logs
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/locust-venv" // Ajuste conforme necessário
+            },
+            "justMyCode": false // Adicione esta linha para permitir depuração em código de terceiros
+        }
+    ]
 }

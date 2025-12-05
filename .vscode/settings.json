@@ -19,5 +19,10 @@
       ],
       "cwd": "${workspaceFolder}"
     }
-  }
+  },
+  "python.testing.pytestArgs": [
+    "locust-venv/tests"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }

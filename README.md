@@ -1,3 +1,15 @@
+# Installation guide
+
+## Create a virtual environment (optional but recommended)
+`python3 -m venv {$name}`
+## Activate the virtual environment
+`source {$name}/bin/activate`  
+## Install dependencies
+`pip install -r requirements.txt`
+
+# Install with pip
+`pip install -r requirements.txt`
+
 # Run Locust with web interface
 `locust -f locustfile.py`
 
