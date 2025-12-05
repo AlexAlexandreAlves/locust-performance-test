@@ -30,11 +30,11 @@ class GetActivities(TaskSet):
                 self.activities.append(row)
 
     @task
-    def get_people(self):
+    def get_activity(self):
         self.client.get("/api/v1/Activities")
 
     @task
-    def get_starships(self):
+    def get_activity_by_id(self):
         activity = random.choice(self.activities)
 
         response = self.client.get("/api/v1/Activities/" + activity['id'])
