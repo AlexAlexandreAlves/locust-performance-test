@@ -18,3 +18,9 @@
 
 # Run Locust with multiple processes (workers)
 `locust -f activities_post_test.py --headless -u 10 -r 1 --run-time 15s --processes {number_of_processes}--logfile locust.log` 
+
+# Execution through Docker
+`docker build -t locust-test .`
+
+# Then execute the container
+`docker run --rm -it -p 8089:8089 locust-test`
