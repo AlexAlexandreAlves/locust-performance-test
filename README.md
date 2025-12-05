@@ -33,7 +33,7 @@ locust -f <locustfile.py>
 ```
 
 #### Execute a specific test in headless mode
-- Wheater execute the test inside the "tests" folder:
+- Wheater execute the test out of the "tests" folder:
 
 ```bash
 locust -f <environment_name>/tests/activities_post_test.py --headless -u 10 -r 1 --run-time 15s --logfile locust.log
