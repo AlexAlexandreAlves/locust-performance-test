@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
       - master
 
 jobs:
@@ -26,7 +25,7 @@ jobs:
 
       - name: Run Locust tests
         run: |
-          locust -f tests/activities_get_test.py --headless -u 10 -r 2 --run-time 1m --csv locust_result --logfile locust.log
+          locust -f tests/activities_get_test.py --headless -u 10 -r 2 --run-time 30s --csv locust_result --logfile locust.log
 
       - name: Upload Locust log
         uses: actions/upload-artifact@v4
