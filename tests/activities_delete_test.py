@@ -17,7 +17,7 @@ with open(config_path, mode='r') as config_file:
     config = json.load(config_file)
 
 
-class DetActivities(TaskSet):
+class DeleteActivities(TaskSet):
 
     def on_start(self):
         self.activities = []
@@ -37,9 +37,9 @@ class DetActivities(TaskSet):
 
 class WebsiteUser(FastHttpUser):
     host = config['base_url']
-    tasks = [DetActivities]
+    tasks = [DeleteActivities]
     wait_time = between(1, 5)
 
 
 if __name__ == "__main__":
-    run_single_user(DetActivities)
+    run_single_user(DeleteActivities)
